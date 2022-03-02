@@ -82,24 +82,24 @@ init([]) ->
     {ok, NodePort} = application:get_env(blockchain_node, jsonrpc_port),
     {ok,
         {SupFlags, [
-            ?SUP(blockchain_sup, [BlockchainOpts]),
-            ?WORKER(txn_follower, blockchain_follower, [
-                [{follower_module, {bn_txns, [{base_dir, BaseDir}]}}]
-            ]),
-            ?WORKER(pending_txn_follower, blockchain_follower, [
-                [{follower_module, {bn_pending_txns, [{base_dir, BaseDir}]}}]
-            ]),
-            ?WORKER(oracle_price_follower, blockchain_follower, [
-                [{follower_module, {bn_oracle_price, [{base_dir, BaseDir}]}}]
-            ]),
-            ?WORKER(balances_follower, blockchain_follower, [
-                [{follower_module, {bn_balances, [{base_dir, BaseDir}]}}]
-            ]),
-            ?WORKER(gateway_follower, blockchain_follower, [
-                [{follower_module, {bn_gateways, [{base_dir, BaseDir}]}}]
-            ]),
-            ?WORKER(bn_wallets, [[{base_dir, BaseDir}]]),
-            ?WORKER(elli, [[{callback, bn_jsonrpc_handler}, {port, NodePort}]])
+            ?SUP(blockchain_sup, [BlockchainOpts])
+            %?WORKER(txn_follower, blockchain_follower, [
+            %    [{follower_module, {bn_txns, [{base_dir, BaseDir}]}}]
+            %]),
+            %?WORKER(pending_txn_follower, blockchain_follower, [
+            %    [{follower_module, {bn_pending_txns, [{base_dir, BaseDir}]}}]
+            %]),
+            %?WORKER(oracle_price_follower, blockchain_follower, [
+            %    [{follower_module, {bn_oracle_price, [{base_dir, BaseDir}]}}]
+            %]),
+            %?WORKER(balances_follower, blockchain_follower, [
+            %    [{follower_module, {bn_balances, [{base_dir, BaseDir}]}}]
+            %]),
+            %?WORKER(gateway_follower, blockchain_follower, [
+            %    [{follower_module, {bn_gateways, [{base_dir, BaseDir}]}}]
+            %]),
+            %?WORKER(bn_wallets, [[{base_dir, BaseDir}]]),
+            %?WORKER(elli, [[{callback, bn_jsonrpc_handler}, {port, NodePort}]])
         ]}}.
 
 random_val_predicate(Peer) ->

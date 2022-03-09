@@ -79,7 +79,7 @@ init([]) ->
         {base_dir, BaseDir}
     ],
 
-    {ok, NodePort} = application:get_env(blockchain_node, jsonrpc_port),
+    %{ok, NodePort} = application:get_env(blockchain_node, jsonrpc_port),
     {ok,
         {SupFlags, [
             ?SUP(blockchain_sup, [BlockchainOpts])
